@@ -1,9 +1,4 @@
 import random
-import client
-import server
-
-
-
 
 def gcd(a,b):
 	"""Compute the greatest common divisor of a and b"""
@@ -44,14 +39,6 @@ def gen_prime(n):
 			return p
 
 
-def encrypt(public_key,message):
-	cyphred=""
-	for c in message:
-		chr_utf = ord(c)
-		encrypt_chr_utf = chr_utf^(public_key[1]) % public_key[0]
-		cyphred = cyphred+chr(encrypt_chr_utf)
-	return cyphred
-
 def decrypt(private_key,message):
 	cyphred=""
 	for c in message:
@@ -61,9 +48,6 @@ def decrypt(private_key,message):
 
 		cyphred = cyphred+chr(encrypt_chr_utf)
 	return cyphred
-
-
-
 
 
 def setup(private_key=-1,public_key=-1):
@@ -89,13 +73,6 @@ def setup(private_key=-1,public_key=-1):
 
 		return (pub_k,priv_k)
 
-def encrypt(pub_key,message):
-	cyphred_msg=""
-	for char in message:
-		c = ord(char)
-		cyphred_char = pow(c,(pub_key[1])) % pub_key[0]		
-		cyphred_msg = cyphred_msg+chr(cyphred_char)
-	return cyphred_msg
 
 def decrypt(priv_key,message):
 	uncyphred_msg=""
@@ -106,14 +83,14 @@ def decrypt(priv_key,message):
 	return uncyphred_msg
 
 
-keys = setup()
-print(keys)
-print("\n")
-m = "Mensagem de teste"
-print("Mensagem: "+m)
-m = client.encrypt(keys[0],m)
-print("Mensagem criptografada: "+m)
-m = server.decrypt(keys[1],m)
-print("Mensagem revertida: "+m)
-print("\n")
-
+if False:
+	keys = setup()
+	print(keys)
+	print("\n")
+	m = "Lorem ipsum"
+	print("Mensagem: "+m)
+	m = encrypt(keys[0],m)
+	print("Mensagem criptografada: "+m)
+	m = server.decrypt(keys[1],m)
+	print("Mensagem revertida: "+m)
+	print("\n")
