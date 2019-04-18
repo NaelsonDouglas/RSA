@@ -1,15 +1,13 @@
-import random
-import client
-import server
+import cryptography
 
-keys = server.setup()
+keys = cryptography.setup()
 print(keys)
 print("\n")
 m = "Mensagem de teste"
 print("Mensagem: "+m)
-m = client.encrypt(keys[0],m)
+m = cryptography.encrypt(keys[0],m)
 print("Mensagem criptografada: "+m)
-m = server.decrypt(keys[1],m)
+m = cryptography.decrypt(keys[1],m)
 print("Mensagem revertida: "+m)
 print("\n")
 
