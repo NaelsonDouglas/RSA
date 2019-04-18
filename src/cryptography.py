@@ -51,6 +51,9 @@ def decrypt(private_key,message):
 
 
 def setup(private_key=-1,public_key=-1):
+	priv_k = private_key
+	pub_k = public_key
+	
 	if private_key == -1 or public_key == -1:
 		p = gen_prime(5)
 		q = gen_prime(5)
@@ -71,7 +74,7 @@ def setup(private_key=-1,public_key=-1):
 			print("e:"+str(e))
 			print("d:"+str(d))
 
-		return (pub_k,priv_k)
+	return (pub_k,priv_k)
 
 
 def decrypt(priv_key,message):
